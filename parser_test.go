@@ -20,4 +20,8 @@ func TestParseCoords(t *testing.T) {
 	tPC("-71˚, -92˚", -71, -92, nil)
 	tPC("-171˚, -92˚", 0, 0, ErrInvalidCoords)
 	tPC("# -171˚, -92˚", 0, 0, ErrInvalidCoords)
+	tPC("12˚ N, 45˚ E", 12, 45, nil)
+	tPC("55.7558° N, 37.6173° E", 55.7558, 37.6173, nil)
+	tPC("34.6037° S, 58.3816° W", -34.6037, -58.3816, nil)
+	tPC("94.6037° S, 58.3816° W", 0, 0, ErrInvalidCoords)
 }
